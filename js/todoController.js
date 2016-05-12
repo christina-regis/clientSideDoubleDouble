@@ -7,7 +7,7 @@ function TodoController($http){
 	var self = this;
 	self.addTodo = addTodo;
 	self.getTodo = getTodo;
-	// self.deleteTodo = deleteTodo;
+	self.deleteTodo = deleteTodo;
 	self.newTodo = {};
 	self.allTasks = []
 
@@ -31,6 +31,14 @@ function TodoController($http){
 				getTodo();
 			});
 			self.newTodo = {};
+	}
+
+	function deleteTodo(todo){
+		$http
+			.delete('http://localhost:3000/api/todos/' + todo._id)
+			.then(function(response){
+				getTodo();
+			});
 	}
 
 }

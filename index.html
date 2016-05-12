@@ -10,7 +10,7 @@
 <body ng-controller="TodoController as ctrl">
 	{{1+1}}
 	<ul>
-	 <li ng-repeat="todo in ctrl.allTasks">{{todo.title}}</li>
+	 <li ng-repeat="todo in ctrl.allTasks">{{todo.title}}<button ng-click="ctrl.deleteTodo(todo)">Delete</button></li>
 	</ul>
 
 	<div>
